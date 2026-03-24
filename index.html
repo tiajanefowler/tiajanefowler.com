@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<!--
+  Tia-Jane Fowler
+  03/22/26
+  The index.html page for my professional personal website. Includes sections for
+  an introduction, about me, work, contact information, and a small personal section.
+-->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tia-Jane Fowler</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js"></script>
+  <link rel="icon" type="image/png" href="images/favicon-circle.png">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap"
+    rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+SC:wght@300;400;500;600;700&family=Cormorant:ital,wght@0,300..700;1,300..700&family=Encode+Sans:wght@100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
+<!-- <link href="https://fonts.googleapis.com/css2?family=Cormorant+SC:wght@300;400;500;600;700&family=Cormorant:ital,wght@0,300..700;1,300..700&family=Encode+Sans:wght@100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet"> -->
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+SC:wght@300;400;500;600;700&family=Cormorant:ital,wght@0,300..700;1,300..700&family=Didact+Gothic&family=Encode+Sans:wght@100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
+<script src="https://unpkg.com/lucide@latest" defer></script>
+
+
+</head>
+<body id="top">
+  <header>
+    <section id="top-box">
+      <section id="intro-layout">
+        <section id="intro-copy">
+          <h1>I'm Tia-Jane Fowler</h1>
+          <p id="intro-text">
+            I'm a coauthored research assistant at the UW <a href="https://socialrl.cs.washington.edu/" target="_blank">Social Reinforcement Learning Lab</a>
+            under Prof. Natasha Jaques, teaching assistant for several computer science courses, and incoming SDE intern at Amazon.
+
+<!--
+            I’m a third-year B.S. candidate in Computer Science at the University of Washington. I research
+            human-AI interaction in the
+            <a href="https://socialrl.cs.washington.edu/" target="_blank">Social Reinforcement Learning Lab</a>
+            under Natasha Jaques, serve as a teaching assistant for several computer science courses, and am
+            incoming to Amazon as Amazon. -->
+          <br><br>
+          Reach out at <strong>tiajanezfowler [at] gmail [dot] com</strong> or via
+          <a href="https://www.linkedin.com/in/tiajanefowler/" target="_blank">LinkedIn</a>
+          </p>
+
+
+
+          <section class="intro-actions">
+            <section class="intro-icons" aria-label="Affiliations">
+              <!-- <span><img src="images/socialrl-logo.png" alt="Social Reinforcement Learning Lab logo" loading="lazy"></span> -->
+              <span><img id="cse-logo" src="images/cse-light.jpg" alt="UW CSE logo" loading="lazy"></span>
+              <span><img id="amazon-logo" src="images/amazon-light.webp" alt="Amazon logo" loading="lazy"></span>
+
+            </section>
+
+            <article id="contact">
+      </article>
+          </section>
+        </section>
+
+        <figure id="hero-photo-frame">
+          <img
+            id="hero-photo"
+            src="images/pfp.png"
+            alt="Portrait of Tia-Jane Fowler"
+            loading="eager">
+        </figure>
+      </section>
+    </section>
+
+    <button id="theme-toggle" class="theme-toggle" type="button" aria-label="Toggle light and dark mode" aria-pressed="false">
+      <span class="theme-toggle-track">
+        <span class="theme-icon theme-icon-sun" data-lucide="sun" aria-hidden="true"></span>
+        <span class="theme-icon theme-icon-moon" data-lucide="moon" aria-hidden="true"></span>
+        <span class="theme-toggle-thumb" aria-hidden="true"></span>
+      </span>
+    </button>
+
+    <div class="sticky-brand" aria-hidden="true">
+      <p>TJF</p>
+    </div>
+  </header>
+
+  <main>
+    <section id="content">
+
+
+      <article id="work">
+        <h2>WORK</h2>
+
+        <section class="work-layout" id="work-layout">
+          <section class="stack">
+            <section class="detail-card" id="research-card">
+              <section class="research-main">
+              <p class="eyebrow">Research</p>
+              <h3>UW Social Reinforcement Learning Laboratory</h3>
+              <p class="meta">
+                Paul G. Allen School of Computer Science &amp; Engineering · Jun 2024 – Present
+              </p>
+              <p>
+                Advised by Prof. Natasha Jaques, I study how AI can learn from people and one another to better support teamwork, adapt in real time, and make everyday technologies safer and more human-centric.
+              </p>
+              <ul>
+                 <li>
+                  Co-author on an <strong>ICLR 2026</strong> paper, in collaboration with MIT.
+                  <a id="paper-title-link" href="docs/iclr-paper.pdf" aria-controls="paper-side-panel" aria-expanded="false"><span class="paper-title-text"><em>Generative Adversarial Post-Training Mitigates Reward Hacking in Live Human-AI
+                  Music Interaction</em></span><span data-lucide="panel-left-close" class="paper-icon"></span></a>
+                </li>
+
+                <li>
+                  Helped build and test the real-time interactive system, including backend integration
+                  with the model.
+                </li>
+                <li>
+                  Explored broader challenges in real-time generative models, including reward hacking
+                  and diversity collapse.
+                </li>
+              </ul>
+              </section>
+            </section>
+
+            <section class="detail-card" id="teaching-card">
+              <section class="teaching-main">
+                <p class="eyebrow">Teaching</p>
+                <h3>Teaching Assistant</h3>
+                <p class="meta">
+                  Paul G. Allen School of Computer Science &amp; Engineering · Sept 2024 – Present
+                </p>
+                <p>
+                  I currently TA across multiple areas of computer science:
+                  <a href="https://courses.cs.washington.edu/courses/cse154/25au/index.html" target="_blank" rel="noopener noreferrer"><strong>CSE 154</strong></a> (full-stack web development),
+                  <a href="https://courses.cs.washington.edu/courses/cse412/26wi/index.html" target="_blank" rel="noopener noreferrer"><strong>CSE 412</strong></a> (data visualization), and
+                  <strong>CSE 340</strong> (interaction programming).
+                </p>
+                <ul>
+                  <li>Lead quiz sections of 12–30 students.</li>
+                  <li>Provide individualized support in office hours to break down technical concepts.</li>
+                  <li>Evaluate assignments and provide written feedback.</li>
+                  <li>
+                    Collaborate and coordinate between
+                    professors, TAs, and students.
+                  </li>
+                </ul>
+              </section>
+            </section>
+
+            <section class="detail-card" id="industry-card">
+              <section class="industry-layout">
+                <section class="industry-copy">
+                  <p class="eyebrow">Industry</p>
+                  <h3>Software Development Engineer Intern</h3>
+                  <p class="meta">
+                    Amazon · Summer 2026 (incoming)
+                  </p>
+                </section>
+              </section>
+            </section>
+          </section>
+        </section>
+      </article>
+
+      <div id="modal-backdrop" class="modal-backdrop hidden"></div>
+      <aside id="paper-side-panel" class="paper-side-panel hidden" aria-label="Embedded paper preview">
+        <section class="paper-side-panel-header">
+          <p>Paper preview</p>
+          <button id="close-paper-panel" class="link-button" type="button">Close</button>
+        </section>
+        <iframe src="docs/iclr-paper.pdf#view=FitH" title="ICLR 2026 paper preview" loading="lazy"></iframe>
+        <div class="paper-panel-links">
+          <a href="docs/iclr-paper.pdf" target="_blank" rel="noopener noreferrer">Open in new tab</a>
+          <a href="https://arxiv.org/abs/2511.17879" target="_blank" rel="noopener noreferrer">See in arXiv</a>
+        </div>
+      </aside>
+
+      <article id="more">
+        <h2>MORE</h2>
+        <p class="more-intro">
+          I'm also an artist, musician, and sailing instructor.
+        </p>
+
+        <section class="more-showcase">
+          <section class="more-group" id="art-showcase">
+            <h3>Art</h3>
+            <section class="media-grid art-grid">
+
+              <figure class="media-card">
+                <img src="images/watercolor.png" alt="Watercolor artwork by Tia-Jane Fowler">
+              </figure>
+
+              <figure class="media-card">
+                <img src="images/study-book.png" alt="Study book art page by Tia-Jane Fowler">
+              </figure>
+
+              <figure class="media-card">
+                <img src="images/graphic-score.png" alt="Graphic score artwork by Tia-Jane Fowler">
+              </figure>
+            </section>
+            <!-- <p class="showcase-caption">I dabble in watercolor, pencil sketching, and "graphic scores," where music is represented visually rather than through traditional notation.</p> -->
+          </section>
+          <section class="more-group" id="violin-showcase">
+            <h3>Music</h3>
+            <section class="media-grid two-up">
+              <figure class="media-card">
+                <iframe
+                  src="https://www.youtube.com/embed/TddI4RTKaR8?rel=0&modestbranding=1"
+                  title="Quartet rehearsal clip"
+                  loading="lazy"
+                  referrerpolicy="origin"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowfullscreen>
+                </iframe>
+              </figure>
+
+              <figure class="media-card">
+                <iframe
+                  src="https://www.youtube.com/embed/QsYi2TnpN2s?rel=0&modestbranding=1"
+                  title="Music performance clip"
+                  loading="lazy"
+                  referrerpolicy="origin"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowfullscreen>
+                </iframe>
+              </figure>
+
+              <figure class="media-card">
+                <iframe
+                  src="https://www.youtube.com/embed/m9HCOrM_11Y?rel=0&modestbranding=1"
+                  title="Music performance video 3"
+                  loading="lazy"
+                  referrerpolicy="origin"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowfullscreen>
+                </iframe>
+              </figure>
+
+              <figure class="media-card">
+                <iframe
+                  src="https://www.youtube.com/embed/X8Ey4r_VGLQ?rel=0&modestbranding=1"
+                  title="Music performance video 4"
+                  loading="lazy"
+                  referrerpolicy="origin"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowfullscreen>
+                </iframe>
+              </figure>
+            </section>
+            <!-- <p class="showcase-caption">Recent performances for a masterclass and a CS Department holiday party. </p> -->
+          </section>
+
+
+          <section class="more-group" id="sailing-showcase">
+            <h3>Sailing</h3>
+            <section class="media-grid two-up">
+              <figure class="media-card">
+                <img src="images/sailing.png" alt="Sailing photo">
+              </figure>
+
+              <figure class="media-card">
+                <iframe
+                  src="https://www.youtube.com/embed/hlPgWmzXPRM?rel=0&modestbranding=1"
+                  title="Sailing short clip"
+                  loading="lazy"
+                  referrerpolicy="origin"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowfullscreen>
+                </iframe>
+              </figure>
+            </section>
+            <!-- <p class="showcase-caption">I used to be a sailing instructor and compete on a racing team.</p> -->
+          </section>
+
+        </section>
+      </article>
+    </section>
+  </main>
+
+  <footer>
+    <p><a href="#top">Back to top</a></p>
+    <p><span id="current-year"></span> by Tia-Jane Fowler</p>
+  </footer>
+</body>
+</html>
