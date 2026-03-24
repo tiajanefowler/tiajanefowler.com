@@ -659,14 +659,9 @@ article p {
   outline-offset: 2px;
 }
 
-.paper-close-icon-desktop,
-.paper-close-icon-mobile {
+.paper-close-icon-desktop {
   width: 18px;
   height: 18px;
-}
-
-.paper-close-icon-mobile {
-  display: none;
 }
 
 .paper-side-panel-header p {
@@ -1092,16 +1087,13 @@ footer p {
   }
 
   .paper-side-panel iframe {
-    height: auto;
+    flex: 1;
+    overflow: auto;
     border-radius: 0;
   }
 
   .paper-close-icon-desktop {
     display: none;
-  }
-
-  .paper-close-icon-mobile {
-    display: inline-block;
   }
 
   .paper-title-icon-desktop {
