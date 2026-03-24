@@ -17,12 +17,19 @@
     href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap"
     rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+SC:wght@300;400;500;600;700&family=Cormorant:ital,wght@0,300..700;1,300..700&family=Encode+Sans:wght@100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
-<!-- <link href="https://fonts.googleapis.com/css2?family=Cormorant+SC:wght@300;400;500;600;700&family=Cormorant:ital,wght@0,300..700;1,300..700&family=Encode+Sans:wght@100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet"> -->
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+SC:wght@300;400;500;600;700&family=Cormorant:ital,wght@0,300..700;1,300..700&family=Didact+Gothic&family=Encode+Sans:wght@100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
 <script src="https://unpkg.com/lucide@latest" defer></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-KSYJRN2QDE"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
 
+  gtag('config', 'G-KSYJRN2QDE');
+</script>
 
 </head>
+
 <body id="top">
   <header>
     <section id="top-box">
@@ -105,7 +112,7 @@
                  <li>
                   Co-author on an <strong>ICLR 2026</strong> paper, in collaboration with MIT.
                   <a id="paper-title-link" href="docs/iclr-paper.pdf" aria-controls="paper-side-panel" aria-expanded="false"><span class="paper-title-text"><em>Generative Adversarial Post-Training Mitigates Reward Hacking in Live Human-AI
-                  Music Interaction</em></span><span data-lucide="panel-left-close" class="paper-icon"></span></a>
+                  Music Interaction</em></span><span data-lucide="maximize-2" class="paper-icon"></span></a>
                 </li>
 
                 <li>
@@ -162,11 +169,19 @@
 
       <div id="modal-backdrop" class="modal-backdrop hidden"></div>
       <aside id="paper-side-panel" class="paper-side-panel hidden" aria-label="Embedded paper preview">
+        <div class="paper-panel-notch" aria-label="Drag to close"></div>
+        <div class="paper-panel-minimize-area">
+          <span class="paper-panel-minimize-icon" data-lucide="minimize-2" aria-hidden="true"></span>
+          <span class="paper-panel-preview-text">Preview</span>
+        </div>
         <section class="paper-side-panel-header">
+          <button id="close-paper-panel" class="paper-close-button" type="button" aria-label="Close paper preview">
+            <span class="paper-close-icon-desktop" data-lucide="chevron-right" aria-hidden="true"></span>
+            <span class="paper-close-icon-mobile" data-lucide="chevron-up" aria-hidden="true"></span>
+          </button>
           <p>Paper preview</p>
-          <button id="close-paper-panel" class="link-button" type="button">Close</button>
         </section>
-        <iframe src="docs/iclr-paper.pdf#view=FitH" title="ICLR 2026 paper preview" loading="lazy"></iframe>
+        <iframe src="docs/iclr-paper.pdf#toolbar=0&view=FitH" title="ICLR 2026 paper preview" loading="lazy"></iframe>
         <div class="paper-panel-links">
           <a href="docs/iclr-paper.pdf" target="_blank" rel="noopener noreferrer">Open in new tab</a>
           <a href="https://arxiv.org/abs/2511.17879" target="_blank" rel="noopener noreferrer">See in arXiv</a>
@@ -265,6 +280,14 @@
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                   allowfullscreen>
                 </iframe>
+              </figure>
+
+              <figure class="media-card">
+                <img src="images/whiteboard.jpg" alt="Whiteboard photo">
+              </figure>
+
+              <figure class="media-card">
+                <img src="images/boat.jpg" alt="Boat photo">
               </figure>
             </section>
             <!-- <p class="showcase-caption">I used to be a sailing instructor and compete on a racing team.</p> -->

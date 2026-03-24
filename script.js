@@ -104,6 +104,12 @@
     let closeButton = id("close-paper-panel");
     let panel = id("paper-side-panel");
     let backdrop = id("modal-backdrop");
+    let notch = qs(".paper-panel-notch");
+    let animationDurationMs = 400;
+    let dragStartY = 0;
+    let isDragging = false;
+    let dragThreshold = 100;
+    let dragInitiateZone = 50; // pixels from top of panel to initiate drag
 
     if (!openButton || !closeButton || !panel || !backdrop) {
       return;
@@ -113,10 +119,9 @@
       evt.preventDefault();
       backdrop.classList.remove("hidden");
       panel.classList.remove("hidden");
-      // Trigger animation with inline style
       requestAnimationFrame(function() {
-        panel.style.transform = "translateX(0)";
-        backdrop.style.opacity = "1";
+        panel.classList.add("is-open");
+        backdrop.classList.add("is-open");
       });
       document.body.style.overflow = "hidden";
       openButton.setAttribute("aria-expanded", "true");
@@ -130,19 +135,85 @@
       closeModal();
     });
 
-    // Prevent panel clicks from closing the modal
+    // Prevent panel clicks from closing the modal (except minimize icon)
     panel.addEventListener("click", function(evt) {
+      // Check if minimize icon or its parent was clicked
+      if (evt.target.closest(".paper-panel-minimize-icon") || evt.target.closest(".paper-panel-minimize-area")) {
+        // Stop any active drag and clear inline drag styles that can block class-based transitions.
+        isDragging = false;
+        panel.style.transform = "";
+        panel.style.transition = "";
+        backdrop.style.opacity = "";
+        backdrop.style.transition = "";
+
+        // Defer close to next frame so the browser commits style reset first.
+        requestAnimationFrame(function() {
+          closeModal();
+        });
+        return;
+      }
       evt.stopPropagation();
     });
 
+    // Drag to close on mobile
+    if (panel) {
+      panel.addEventListener("touchstart", function(evt) {
+        // Only allow drag if starting from top portion of panel
+        let touch = evt.touches[0];
+        let panelRect = panel.getBoundingClientRect();
+        let touchY = touch.clientY - panelRect.top;
+
+        if (touchY < dragInitiateZone) {
+          isDragging = true;
+          dragStartY = touch.clientY;
+          panel.style.transition = "none";
+        }
+      });
+
+      document.addEventListener("touchmove", function(evt) {
+        if (!isDragging || !panel.classList.contains("is-open")) return;
+
+        let currentY = evt.touches[0].clientY;
+        let dragDistance = currentY - dragStartY;
+
+        if (dragDistance > 0) {
+          let progress = dragDistance / window.innerHeight;
+          panel.style.transform = "translateY(" + dragDistance + "px)";
+          backdrop.style.opacity = Math.max(0, 1 - progress);
+        }
+      });
+
+      document.addEventListener("touchend", function(evt) {
+        if (!isDragging) return;
+        isDragging = false;
+
+        let endY = evt.changedTouches[0].clientY;
+        let dragDistance = endY - dragStartY;
+
+        panel.style.transition = "transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.4s ease";
+        backdrop.style.transition = "opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1)";
+
+        if (dragDistance > dragThreshold) {
+          closeModal();
+        } else {
+          panel.style.transform = "translateY(0)";
+          backdrop.style.opacity = "1";
+        }
+      });
+    }
+
     function closeModal() {
-      panel.style.transform = "translateX(100%)";
-      backdrop.style.opacity = "0";
+      panel.classList.remove("is-open");
+      backdrop.classList.remove("is-open");
       // Wait for animation to complete before hiding
       setTimeout(function() {
         panel.classList.add("hidden");
         backdrop.classList.add("hidden");
-      }, 400);
+        panel.style.transition = "";
+        panel.style.transform = "";
+        backdrop.style.transition = "";
+        backdrop.style.opacity = "";
+      }, animationDurationMs);
       document.body.style.overflow = "auto";
       openButton.setAttribute("aria-expanded", "false");
     }
