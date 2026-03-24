@@ -1,8 +1,8 @@
 /*
  * Tia-Jane Fowler
- * 03/22/26
- * Adds functionality to my professional personal website, including sticky navigation,
- * active nav link highlighting, paper preview behavior, and footer year insertion.
+ * 03/23/26
+ * Handles behavior for theme switching, paper preview open/close interactions,
+ * external-link icon insertion, and small page setup helpers
  */
 
 "use strict";
@@ -104,12 +104,12 @@
     let closeButton = id("close-paper-panel");
     let panel = id("paper-side-panel");
     let backdrop = id("modal-backdrop");
-    let notch = qs(".paper-panel-notch");
+    // let notch = qs(".paper-panel-notch");
     let animationDurationMs = 400;
     let dragStartY = 0;
     let isDragging = false;
     let dragThreshold = 100;
-    let dragInitiateZone = 50; // pixels from top of panel to initiate drag
+    let dragInitiateZone = 50;
 
     if (!openButton || !closeButton || !panel || !backdrop) {
       return;
@@ -135,18 +135,14 @@
       closeModal();
     });
 
-    // Prevent panel clicks from closing the modal (except minimize icon)
     panel.addEventListener("click", function(evt) {
-      // Check if minimize icon or its parent was clicked
       if (evt.target.closest(".paper-panel-minimize-icon") || evt.target.closest(".paper-panel-minimize-area")) {
-        // Stop any active drag and clear inline drag styles that can block class-based transitions.
         isDragging = false;
         panel.style.transform = "";
         panel.style.transition = "";
         backdrop.style.opacity = "";
         backdrop.style.transition = "";
 
-        // Defer close to next frame so the browser commits style reset first.
         requestAnimationFrame(function() {
           closeModal();
         });
@@ -155,10 +151,8 @@
       evt.stopPropagation();
     });
 
-    // Drag to close on mobile
     if (panel) {
       panel.addEventListener("touchstart", function(evt) {
-        // Only allow drag if starting from top portion of panel
         let touch = evt.touches[0];
         let panelRect = panel.getBoundingClientRect();
         let touchY = touch.clientY - panelRect.top;
@@ -205,7 +199,6 @@
     function closeModal() {
       panel.classList.remove("is-open");
       backdrop.classList.remove("is-open");
-      // Wait for animation to complete before hiding
       setTimeout(function() {
         panel.classList.add("hidden");
         backdrop.classList.add("hidden");

@@ -1,8 +1,8 @@
 /*
   Tia-Jane Fowler
-  03/22/26
-  The stylesheet for my professional personal website. Includes layout, typography,
-  hover states, and a minimal responsive design with a light blue/gray color scheme.
+  03/23/26
+  The stylesheet for my personal website. Includes a minimal design for light
+  and dark modes, as well as animations for interactive elements
 */
 
 body {
@@ -887,6 +887,10 @@ footer p {
   margin: 0;
   color: #666666;
   font-size: 16px;
+}
+
+footer p + p {
+  margin-top: 10px;
 }
 
 @media (max-width: 800px) {
